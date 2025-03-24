@@ -4,9 +4,11 @@ on:
   push:
     branches: 
       - main
+      - develop
   pull_request:
     branches: 
       - main
+      - develop
 
 jobs:
   build:
@@ -18,18 +20,35 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up JDK 11
-      - name: Set up JDK 11
+      # Step 2: Set up JDK 17
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
           cache: gradle
+
+      # Add JavaFX setup
+      - name: Set up JavaFX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjfx
 
       # Step 3: Grant execute permission for gradlew
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      # Add test step
+      - name: Run tests
+        run: ./gradlew test
+
       # Step 4: Build with Gradle
       - name: Build with Gradle
         run: ./gradlew build
+
+      # Add artifact upload
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Calculator-App
+          path: build/libs/*.jar

@@ -1,0 +1,585 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #0F172A, #1E293B);
+    -fx-font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -fx-padding: 10px;
+}
+
+.main-container {
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 10);
+    -fx-border-color: linear-gradient(to right bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    -fx-border-radius: 24px;
+    -fx-border-width: 1px;
+}
+
+.calculator-scroll {
+    -fx-background-color: transparent;
+    -fx-fit-to-width: true;
+    -fx-padding: 0;
+}
+
+.calculator-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.calculator-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12px;
+}
+
+.calculator-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.1), 5, 0, 0, 0);
+}
+
+.calculator-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.2));
+}
+
+.left-side {
+    -fx-spacing: 15px;
+    -fx-padding: 15px;
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+    -fx-min-width: 350px;
+    -fx-max-width: 400px;
+}
+
+.right-side {
+    -fx-spacing: 20px;
+    -fx-padding: 15px;
+    -fx-alignment: top-center;
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.calculator-section {
+    -fx-padding: 20px;
+    -fx-spacing: 15px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-max-width: infinity;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-border-width: 1px;
+    -fx-border-color: rgba(255, 255, 255, 0.9);
+}
+
+.scientific-area {
+    -fx-background-color: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(79,70,229,0.05));
+    -fx-border-color: linear-gradient(to right, #4F46E5, #4338CA);
+    -fx-animation: borderGlow 3s infinite alternate;
+}
+
+.financial-area {
+    -fx-background-color: linear-gradient(135deg, rgba(236,72,153,0.1), rgba(219,39,119,0.05));
+    -fx-border-color: linear-gradient(to right, #EC4899, #DB2777);
+    -fx-animation: borderGlow 3s infinite alternate;
+}
+
+.programmer-area {
+    -fx-background-color: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(124,58,237,0.05));
+    -fx-border-color: linear-gradient(to right, #8B5CF6, #7C3AED);
+    -fx-animation: borderGlow 3s infinite alternate;
+}
+
+.converter-area {
+    -fx-background-color: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(2,132,199,0.05));
+    -fx-border-color: linear-gradient(to right, #0EA5E9, #0284C7);
+    -fx-animation: borderGlow 3s infinite alternate;
+}
+
+.section-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-background-radius: 16px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);
+    -fx-animation: titleFloat 4s infinite ease-in-out;
+    -fx-text-fill: #1C1C1E;
+    -fx-font-weight: semibold;
+}
+
+@keyframes titleFloat {
+    0% { -fx-translate-y: 0; }
+    50% { -fx-translate-y: -5; }
+    100% { -fx-translate-y: 0; }
+}
+
+.scientific-title {
+    -fx-text-fill: linear-gradient(to right, #38ada9, #78e08f);
+    -fx-border-color: linear-gradient(to right, #38ada9, #78e08f);
+    -fx-effect: dropshadow(gaussian, #38ada977, 15, 0, 0, 0);
+}
+
+.financial-title {
+    -fx-text-fill: linear-gradient(to right, #eb4d4b, #f0932b);
+    -fx-border-color: linear-gradient(to right, #eb4d4b, #f0932b);
+    -fx-effect: dropshadow(gaussian, #eb4d4b77, 15, 0, 0, 0);
+}
+
+.programmer-title {
+    -fx-text-fill: linear-gradient(to right, #6c5ce7, #a55eea);
+    -fx-border-color: linear-gradient(to right, #6c5ce7, #a55eea);
+    -fx-effect: dropshadow(gaussian, #6c5ce777, 15, 0, 0, 0);
+}
+
+.converter-title {
+    -fx-text-fill: linear-gradient(to right, #18dcff, #17c0eb);
+    -fx-border-color: linear-gradient(to right, #18dcff, #17c0eb);
+    -fx-effect: dropshadow(gaussian, #18dcff77, 15, 0, 0, 0);
+}
+
+.function-group {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-background-radius: 16px;
+    -fx-border-color: linear-gradient(to right bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    -fx-border-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 4);
+    -fx-transition: all 0.3s ease;
+}
+
+.function-group:hover {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 6);
+}
+
+.function-grid {
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+    -fx-alignment: center;
+    -fx-padding: 5px;
+}
+
+.calculator-button {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    -fx-text-fill: #1C1C1E;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: linear-gradient(to right bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 4);
+    -fx-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calculator-button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-background-color: linear-gradient(to bottom right, rgba(255,255,255,0.15), rgba(255,255,255,0.1));
+    -fx-effect: dropshadow(gaussian, rgba(99,102,241,0.3), 15, 0, 0, 5),
+                innershadow(gaussian, rgba(255,255,255,0.2), 10, 0, 0, 0);
+}
+
+.calculator-button:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);
+}
+
+.function-button {
+    -fx-min-width: 75px;
+    -fx-min-height: 50px;
+    -fx-background-color: linear-gradient(to bottom right, #f0f7ff, #e6f0ff);
+    -fx-text-fill: #007AFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: medium;
+    -fx-border-color: rgba(26, 115, 232, 0.2);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-transition: all 0.2s ease-out;
+}
+
+.function-button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-background-color: linear-gradient(to bottom right, #e6f0ff, #d9e7ff);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+.function-button:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-background-color: linear-gradient(to bottom right, #d9e7ff, #cce0ff);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);
+}
+
+/* Dark theme styles */
+.root.dark {
+    -fx-background-color: linear-gradient(to bottom right, #020617, #0F172A);
+}
+
+.root.dark .main-container {
+    -fx-background-color: rgba(47, 53, 66, 0.95);
+    -fx-border-color: rgba(60, 60, 60, 0.8);
+}
+
+.root.dark .calculator-section {
+    -fx-background-color: rgba(40, 40, 40, 0.9);
+    -fx-border-color: rgba(60, 60, 60, 0.9);
+}
+
+.root.dark .scientific-area {
+    -fx-background-color: linear-gradient(to bottom, #2d3436, #3d3d3d);
+    -fx-border-color: #4a4a4a;
+}
+
+.root.dark .financial-area {
+    -fx-background-color: linear-gradient(to bottom, #2d3436, #3d3d3d);
+    -fx-border-color: #4a4a4a;
+}
+
+.root.dark .programmer-area {
+    -fx-background-color: linear-gradient(to bottom, #2d3436, #3d3d3d);
+    -fx-border-color: #4a4a4a;
+}
+
+.root.dark .converter-area {
+    -fx-background-color: linear-gradient(to bottom, #2d3436, #3d3d3d);
+    -fx-border-color: #4a4a4a;
+}
+
+.root.dark .scientific-title {
+    -fx-text-fill: linear-gradient(to right, #00ffff, #00ccff);
+    -fx-border-color: linear-gradient(to right, #00ffff, #00ccff);
+    -fx-effect: dropshadow(gaussian, #00ffff77, 20, 0, 0, 0);
+    -fx-animation: darkGlowScientific 3s infinite alternate;
+}
+
+@keyframes darkGlowScientific {
+    0% {
+        -fx-effect: dropshadow(gaussian, #00ffff77, 20, 0, 0, 0);
+    }
+    100% {
+        -fx-effect: dropshadow(gaussian, #00ccff77, 30, 0, 0, 0);
+    }
+}
+
+.root.dark .financial-title {
+    -fx-text-fill: linear-gradient(to right, #ffd700, #ff6b6b);
+    -fx-border-color: linear-gradient(to right, #ffd700, #ff6b6b);
+    -fx-effect: dropshadow(gaussian, #ffd70077, 20, 0, 0, 0);
+    -fx-animation: darkGlowFinancial 3s infinite alternate;
+}
+
+@keyframes darkGlowFinancial {
+    0% {
+        -fx-effect: dropshadow(gaussian, #ffd70077, 20, 0, 0, 0);
+    }
+    100% {
+        -fx-effect: dropshadow(gaussian, #ff6b6b77, 30, 0, 0, 0);
+    }
+}
+
+.root.dark .programmer-title {
+    -fx-text-fill: linear-gradient(to right, #b39ddb, #ff8a80);
+    -fx-border-color: linear-gradient(to right, #b39ddb, #ff8a80);
+    -fx-effect: dropshadow(gaussian, #b39ddb77, 20, 0, 0, 0);
+    -fx-animation: darkGlowProgrammer 3s infinite alternate;
+}
+
+@keyframes darkGlowProgrammer {
+    0% {
+        -fx-effect: dropshadow(gaussian, #b39ddb77, 20, 0, 0, 0);
+    }
+    100% {
+        -fx-effect: dropshadow(gaussian, #ff8a8077, 30, 0, 0, 0);
+    }
+}
+
+.root.dark .converter-title {
+    -fx-text-fill: linear-gradient(to right, #00e676, #76ff03);
+    -fx-border-color: linear-gradient(to right, #00e676, #76ff03);
+    -fx-effect: dropshadow(gaussian, #00e67677, 20, 0, 0, 0);
+    -fx-animation: darkGlowConverter 3s infinite alternate;
+}
+
+@keyframes darkGlowConverter {
+    0% {
+        -fx-effect: dropshadow(gaussian, #00e67677, 20, 0, 0, 0);
+    }
+    100% {
+        -fx-effect: dropshadow(gaussian, #76ff0377, 30, 0, 0, 0);
+    }
+}
+
+.root.dark .function-group {
+    -fx-background-color: rgba(50, 50, 50, 0.7);
+    -fx-border-color: rgba(70, 70, 70, 0.3);
+}
+
+.root.dark .calculator-button {
+    -fx-background-color: linear-gradient(to bottom right, rgba(30,41,59,0.8), rgba(15,23,42,0.8));
+    -fx-text-fill: #FFFFFF;
+}
+
+.root.dark .function-button {
+    -fx-background-color: linear-gradient(to bottom right, #2b4c7a, #1a3b69);
+    -fx-text-fill: #0A84FF;
+    -fx-border-color: rgba(102, 179, 255, 0.2);
+}
+
+.root.dark .display {
+    -fx-text-fill: #131212;
+}
+
+.root.dark .section-title,
+.root.dark .group-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: rgba(60, 60, 60, 0.8);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .main-container {
+        -fx-orientation: vertical;
+    }
+    
+    .right-side {
+        -fx-pref-width: 100%;
+    }
+    
+    .calculator-section {
+        -fx-pref-width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .calculator-button,
+    .function-button {
+        -fx-min-width: 60px;
+        -fx-min-height: 45px;
+        -fx-font-size: 13px;
+    }
+    
+    .display {
+        -fx-font-size: 28px;
+        -fx-text-fill: #161616;
+    }
+    
+    .section-title {
+        -fx-font-size: 20px;
+    }
+}
+
+.display-area {
+    -fx-spacing: 10px;
+    -fx-padding: 20px;
+    -fx-background-color: linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    -fx-background-radius: 20px;
+    -fx-border-color: linear-gradient(to right bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);
+}
+
+.history-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.history-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.history-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12px;
+}
+
+.history-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 6px;
+}
+
+.history-container {
+    -fx-spacing: 5px;
+    -fx-padding: 5px;
+}
+
+.history-item {
+    -fx-padding: 5px;
+    -fx-text-fill: #666;
+    -fx-font-size: 12px;
+}
+
+.history-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+    -fx-padding: 5px 0;
+}
+
+.display {
+    -fx-font-size: 48px;
+    -fx-font-weight: light;
+    -fx-text-fill: #1C1C1E;
+}
+
+.memory-container {
+    -fx-padding: 10px 0;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px 0;
+}
+
+.button-grid {
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+.zero-button {
+    -fx-min-width: 160px; /* Double width for zero button */
+    -fx-background-color: white;
+    -fx-text-fill: #2c3e50;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8px;
+}
+
+.decimal-button {
+    -fx-min-width: 75px;
+    -fx-background-color: white;
+    -fx-text-fill: #2c3e50;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8px;
+}
+
+.equals-button {
+    -fx-background-color: linear-gradient(to bottom right, #10B981, #059669);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.4), 12, 0, 0, 4);
+    -fx-animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.4), 12, 0, 0, 4); }
+    50% { -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.6), 20, 0, 0, 8); }
+    100% { -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.4), 12, 0, 0, 4); }
+}
+
+/* Dark theme adjustments */
+.root.dark .zero-button,
+.root.dark .decimal-button {
+    -fx-background-color: linear-gradient(to bottom right, #3d3d3d, #333333);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: rgba(80, 80, 80, 0.3);
+}
+
+.root.dark .equals-button {
+    -fx-background-color: linear-gradient(to bottom right, #00b894, #55efc4);
+    -fx-text-fill: #2d3436;
+}
+
+.root.dark .clear-button {
+    -fx-background-color: linear-gradient(to bottom right, #ff7675, #d63031);
+    -fx-text-fill: white;
+}
+
+.root.dark .clear-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #d63031, #e84393);
+}
+
+.root.dark .erase-button {
+    -fx-background-color: linear-gradient(to bottom right, #fdcb6e, #e17055);
+    -fx-text-fill: white;
+}
+
+.memory-button {
+    -fx-background-color: #f0f2f5;
+    -fx-text-fill: #007AFF;
+    -fx-font-size: 14px;
+    -fx-min-width: 45px;
+    -fx-min-height: 35px;
+}
+
+.separator {
+    -fx-min-height: 1px;
+    -fx-pref-height: 1px;
+    -fx-background-color: #e0e0e0;
+    -fx-opacity: 0.5;
+}
+
+.group-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 8px;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 3, 0, 0, 1);
+}
+
+.group-separator {
+    -fx-min-height: 1px;
+    -fx-pref-height: 1px;
+    -fx-background-color: #e0e0e0;
+    -fx-opacity: 0.3;
+}
+
+.theme-button {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 20px;
+}
+
+/* Tooltip styles */
+.tooltip {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 4px;
+}
+
+.root.dark .tooltip {
+    -fx-background-color: #66b3ff;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        -fx-opacity: 0;
+        -fx-translate-y: -20px;
+    }
+    100% {
+        -fx-opacity: 1;
+        -fx-translate-y: 0;
+    }
+}
+
+.calculator-section {
+    -fx-opacity: 0;
+    -fx-animation: fadeIn 0.5s ease-out forwards;
+}
+
+.scientific-area { -fx-animation-delay: 0.1s; }
+.financial-area { -fx-animation-delay: 0.2s; }
+.programmer-area { -fx-animation-delay: 0.3s; }
+.converter-area { -fx-animation-delay: 0.4s; }
+
+.number-button {
+    -fx-background-color: linear-gradient(to bottom right, #f5f6fa, #dcdde1);
+    -fx-text-fill: #2c3e50;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8px;
+}
+
+.operator-button {
+    -fx-background-color: linear-gradient(to bottom right, #4F46E5, #4338CA);
+    -fx-text-fill: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(79,70,229,0.4), 12, 0, 0, 4);
+    -fx-font-weight: medium;
+}
+
+.operator-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #4338CA, #3730A3);
+    -fx-effect: dropshadow(gaussian, rgba(79,70,229,0.6), 15, 0, 0, 5);
+}
