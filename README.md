@@ -21,8 +21,8 @@ A beautiful and feature-rich calculator application built with JavaFX, featuring
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd advanced-calculator
+https://github.com/astern-t/Java-Calculator.git
+cd Java-Calculator
 ```
 
 2. Build the project:
